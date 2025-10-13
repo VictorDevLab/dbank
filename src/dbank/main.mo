@@ -14,8 +14,17 @@ actor DBank {
   };
 //Nat means natural number(> 0 && not negative)
   public func withdraw(amount: Nat) {
-    currentBalance -= amount;
-    Debug.print(debug_show(currentBalance))
-  }
+    let tempValue: Int = currentBalance - amount;
+    if(tempValue >=0) {
+      currentBalance -= amount;
+      Debug.print(debug_show(currentBalance))
+    } else {
+       Debug.print("error: Not enough balance!")
+    }
+  };
+//query functions
+ public query func checkBalance(): async Nat {
+  return currentBalance
+ };
 
 }
