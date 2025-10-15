@@ -28,6 +28,7 @@ actor DBank {
  public query func checkBalance(): async Float {
   return currentValue
  };
+ 
   
   public func compound() {
     let currentTime = Time.now();
