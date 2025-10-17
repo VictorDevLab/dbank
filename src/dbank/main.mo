@@ -4,17 +4,17 @@ import Float "mo:base/Float";
 //new canister
 actor DBank {
   stable var currentValue: Float = 200;
-  // currentValue := 150;
+  // currentValue:= 300;
   stable var startTime = Time.now();
+  //startTime:= Time.now();
   let id = 2300023;
 
-  //Debug.print(debug_show(currentValue));
 
   public func topUp(amount: Float) {
     currentValue += amount;
     Debug.print(debug_show(currentValue))
   };
-//Nat means natural number(> 0 && not negative)
+
   public func withdraw(amount: Float) {
     let tempValue: Float = currentValue - amount;
     if(tempValue >=0) {
@@ -24,11 +24,11 @@ actor DBank {
        Debug.print("error: Not enough balance!")
     }
   };
-//query functions
+
  public query func checkBalance(): async Float {
   return currentValue
  };
- 
+
   
   public func compound() {
     let currentTime = Time.now();
